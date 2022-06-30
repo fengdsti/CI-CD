@@ -37,6 +37,7 @@ jobs:
         cache-dependency-path: 'lab/package-lock.json'
     - run: npm ci
     - run: npm test
+#CD part
  deploy:
     needs: test
     runs-on: ubuntu-latest
