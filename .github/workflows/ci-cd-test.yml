@@ -6,14 +6,14 @@ on:
   pull_request:
     branches: [ master ]
 
-jjobs:
+jobs:
   # CI part
   test:
     runs-on: ubuntu-latest
     # Define `working-directory` if you application is in a subfolder
     defaults:
       run:
-        working-directory: user-api
+        working-directory: lab
     # Service containers to run with `runner-job`
     services:
       # Label used to access the service container
@@ -34,6 +34,6 @@ jjobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-        cache-dependency-path: '**/package-lock.json'
+        cache-dependency-path: 'package-lock.json'
     - run: npm ci
     - run: npm test
